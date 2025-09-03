@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>page screenshot generator - sometgirl.online - linktools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  </head>
+  <body>
+    <h1>page screenshot generator</h1>
+    <a href="/linktools">back to tool list</a>
+    <label for=link>web page link</label><input type=url id=link required>
+    <label for=width>screenshot width</label><input id=width type=number min=0 value=1920>
+    <label for=height>screenshot height</label><input id=height type=number min=0 value=1920>
+    <button onclick="go()">do it</button>
+    <h2>output</h2>
+    <textarea readonly></textarea>
+    <img>
+    <script>
+      function go(){
+        let link = `https://rdl.ink/render/${encodeURIComponent(document.querySelector("#link").value)}?mode=full&width=${document.querySelector("#width").value}&height=${document.querySelector("#height").value}&dpr=1`
+        document.querySelector("textarea").innerText = link
+        document.querySelector("img").src = link
+      }
+    </script>
+  </body>
+</html>
+
